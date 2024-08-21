@@ -17,6 +17,7 @@ const courseWOrkType = [
     "Extended Essay",
     "Intermediate Assessment",
 ]
+
 const courseSubjectWorkType = [
     "Mathmatics",
     "English",

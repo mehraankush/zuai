@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import {
     Card,
@@ -10,6 +12,7 @@ import {
 import Image from 'next/image'
 import { Badge } from '../ui/badge'
 import { base64ToBlob } from '@/utils/PdfDecoder'
+
 
 type BadgeType = {
     img: string;
@@ -39,8 +42,7 @@ const CourseWorkCard: React.FC<CourseWorkCardProps> = ({
     pdfImg,
     onClick
 }) => {
-    console.log("Pdf",pdfImg)
-
+    const pdfBlob = pdfImg ? base64ToBlob(pdfImg, 'application/pdf') : null;
 
     return (
         <Card
@@ -49,20 +51,22 @@ const CourseWorkCard: React.FC<CourseWorkCardProps> = ({
         >
             <div className='flex'>
                 <CardHeader className='flex gap-1 p-1 rounded-xl'>
-                    <object
-                        data={pdfImg ?? '/test.pdf'}
-                        type="application/pdf"
-                        className="w-[120px] bg-white"
-                        style={{
-                            border: 'none',
-                            overflow: 'hidden'
-                        }}
-                    >
-                        <p>
-                            Your browser does not support PDF viewing. Please download the PDF to view it.
-                        </p>
-                    </object>
-                 
+                    {pdfBlob && (
+                        <object
+                            data={URL.createObjectURL(pdfBlob)}
+                            type="application/pdf"
+                            className="w-[120px] bg-white"
+                            style={{
+                                border: 'none',
+                                overflow: 'hidden',
+                            }}
+                        >
+                            <p>
+                                Your browser does not support PDF viewing. Please download the PDF to
+                                view it.
+                            </p>
+                        </object>
+                    )}
                 </CardHeader>
                 <CardContent className='p-1 w-[70%] space-y-1'>
                     <CardTitle className='text-lg text-black100 h-[3.5rem] line-clamp-2 overflow-hidden capitalize'>

@@ -62,7 +62,7 @@ const UploadfileComponent = () => {
                 className="flex flex-col items-center justify-center w-full h-[250px] border-dashed rounded-lg cursor-pointer bg-white  hover:bg-gray-100 text-gray100  dashborder"
             >
                 {uploadedFile && previewUrl ? (
-                    <div className="flex gap-2 items-center w-[200px] lg:w-[250px] border border-slate-300 rounded-xl relative p-2">
+                    <div className="flex gap-2 items-center w-[250px] border border-slate-300 rounded-xl relative p-2">
                         <div
                             className='border border-slate-300 rounded-full absolute -top-2  -right-3 p-1'
                             onClick={handleClearFile}
@@ -76,7 +76,7 @@ const UploadfileComponent = () => {
                         />
                         <div className='flex items-center gap-1  justify-center'>
                             <IoIosCheckmarkCircle className="!w-6 !h-6 text-green-500 text-green" />
-                            <p className="text-xs w-4/5 overflow-hidden h-4 line-clamp-1">{uploadedFile.name}</p>
+                            <p className="text-xs w-[100px] overflow-hidden h-4 line-clamp-1">{uploadedFile.name}</p>
                         </div>
                     </div>
                 ) : (
