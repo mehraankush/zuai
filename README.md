@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# IB Coursework Evaluation Platform
 
-## Getting Started
+## Objective
+This project is a web application for evaluating International Baccalaureate (IB) coursework. The application is built using Next.js 14, TailwindCSS, Zustand for state management, and Shadcn UI components. The design closely resembles the "ZuAi" interface provided in the Figma design.
 
-First, run the development server:
+## Figma Design
+The design for this application can be viewed [here](https://www.figma.com/design/zxoVX8TMExUAZOMdOFStMi/Web-Task---ZuAI?node-id=0-1&t=pLJAY80MGdlbaAYl-1).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech Stack
+- **Next.js 14**
+- **TailwindCSS**
+- **Zustand** (State Management)
+- **Shadcn UI** (Component Library)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key Features
+1. **File Upload**
+   - Drag-and-drop functionality for PDF files.
+   - Manual file upload option.
+   - Display file size limit ("Limit 25 MB per file").
+   - Store uploaded files using browser local storage.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Local Storage Implementation**
+   - Save uploaded files and their metadata locally.
+   - Ensure data persistence across page reloads.
+   - Efficient retrieval of stored files and data.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. **Coursework Details Form**
+   - Dropdowns for "Coursework Type" and "Subject".
+   - Text input for essay title.
+   - Store form data locally with the associated file.
 
-## Learn More
+4. **Evaluation Display**
+   - Display overall score with a circular progress indicator.
+   - Breakdown of scores by criteria (A, B, C).
+   - Display evaluation date.
+   - Store and retrieve evaluation results locally.
 
-To learn more about Next.js, take a look at the following resources:
+5. **Coursework List**
+   - Display previously uploaded coursework from local storage.
+   - Show title, subject, word count, and other relevant details.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+6. **Explore Coursework Section**
+   - Tabbed interface for different coursework categories.
+   - Grid layout for coursework examples.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Bonus Features
+- **Animations**: Smooth transitions between states, micro-interactions for enhanced user feedback.
+- **User Gratification**: Congratulatory messages for good scores, encouraging feedback for areas of improvement.
+- **Accessibility**: Proper use of ARIA attributes and keyboard navigation support.
+- **Testing**: Unit tests for critical components, integration tests for main user flows.
+- **Advanced Local Storage Features**: Data compression for efficient storage, option to clear local storage or individual files.
+- **Mock API Integration**: Simulating server-side persistence using tools like MSW (Mock Service Worker).
 
-## Deploy on Vercel
+## Implementation Notes
+- Used mock API calls for the evaluation process.
+- Ensured all data is stored and retrieved from local storage.
+- Closely matched the provided Figma designs.
+- Handled potential storage limitations gracefully with appropriate user feedback.
+- Leveraged Next.js 14 features such as App Router and Server Components where beneficial.
+- Used Zustand for global state management and Shadcn UI components to maintain design consistency.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Setup Instructions
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mehraankush/zuai.git
+   cd zuai
+   npm install
+   npm run dev
+   ```
